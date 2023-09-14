@@ -92,6 +92,26 @@ def register(login_register: Login_Request):
             cursor.close()
 
 
+@app.post("/delete")
+def del_acc():
+
+    if(app.login['status']==True):
+
+        query1 = f"DELETE FROM accounts WHERE Username = %s"
+        query2 = f"DROP TABLE {app.login['user']}"
+
+        try:
+            with connection.cursor() as cursor:
+                cursor.execute(query1, (app.login['user'],))
+                cursor.execute(query2)
+        except mysql.connector.Error as e:
+            return {'error': 'Database error', 'details': str(e)}
+        finally:
+            cursor.close() 
+        app.login['status'] = False
+        app.login['user']=""
+        return{"Message":"Account has been deleted"};
+    return{"Message":"Nobody logged in"}
 
     
     
