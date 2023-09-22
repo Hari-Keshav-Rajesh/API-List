@@ -18,7 +18,7 @@ def log_in(login_request: Login_Request):
     query1 = "SELECT COUNT(*) FROM accounts WHERE Username = %s"
 
     try:
-        with connection.cursor() as cursor:
+        with connection.cursor() as cursor: 
             cursor.execute(query1, (username,))
             count = cursor.fetchone()[0]
     except mysql.connector.Error as e:
