@@ -1,0 +1,155 @@
+.header{
+    margin-top: 0;
+    display: flex;
+    justify-content: space-between;
+    padding: 2vh;
+    background-color: gray;
+    color: white;
+}
+
+.header-dark{
+    margin-top: 0;
+    display: flex;
+    justify-content: space-between;
+    padding: 2vh; 
+    background-color: #FFFFFF;
+}
+
+.headerButtons{
+    display: flex;
+    justify-content: space-around;
+    gap:4vh;
+    font-weight: bold;
+    font-size: 3vh;
+}
+
+.headerButtons button:hover{
+    color: red;
+    box-shadow: inset;
+}
+
+.sunIcon:hover{
+    color: rgb(255, 255, 0);
+}
+
+.moonIcon:hover{
+    color: gray;
+}
+
+/*Hover Card CSS*/
+
+/* Convert pixel values to viewport height (vh) units for a 768px laptop screen height */
+
+/* HoverCardContent */
+.HoverCardContent {
+    border-radius: 0.78125vh; /* 6px */
+    padding: 2.6042vh; /* 20px */
+    width: 30vh; /* 300px */
+    background-color: white;
+    box-shadow: hsl(206 22% 7% / 35%) 0px 1.3021vh 5.0781vh -1.3021vh, hsl(206 22% 7% / 20%) 0px 1.3021vh 2.6042vh -1.9532vh;
+    animation-duration: 0.0521s; /* 400ms */
+    animation-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
+    will-change: transform, opacity;
+  }
+  
+  /* HoverCardArrow */
+  .HoverCardArrow {
+    fill: white;
+  }
+  
+  /* ImageTrigger */
+  .ImageTrigger {
+    cursor: pointer;
+    border-radius: 2.6042vh; /* 100% */
+    display: inline-block;
+  }
+  
+  /* ImageTrigger:focus */
+  .ImageTrigger:focus {
+    box-shadow: 0 0 0 0.2604vh white; /* 2px */
+  }
+  
+  /* Image */
+  .Image {
+    display: block;
+    border-radius: 2.6042vh; /* 100% */
+  }
+  
+  /* Image.normal */
+  .Image.normal {
+    width: 3.6458vh; /* 45px */
+    height: 3.6458vh; /* 45px */
+    align-items: center;
+    justify-content: center;
+  }
+  
+  /* Image.large */
+  .Image.large {
+    width: 4.6875vh; /* 60px */
+    height: 4.6875vh; /* 60px */
+  }
+  
+  /* Text */
+  .Text {
+    margin: 0;
+    color: var(--mauve-12);
+    font-size: 1.9531vh; /* 15px */
+    line-height: 1.5;
+  }
+  
+  /* Text.faded */
+  .Text.faded {
+    color: var(--mauve-10);
+  }
+  
+  /* Text.bold */
+  .Text.bold {
+    font-weight: 500;
+  }
+  
+  /* keyframes */
+  @keyframes slideUpAndFade {
+    0% {
+      opacity: 0;
+      transform: translateY(0.2604vh); /* 2px */
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  @keyframes slideRightAndFade {
+    0% {
+      opacity: 0;
+      transform: translateX(-0.2604vh); /* -2px */
+    }
+    100% {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+  
+  @keyframes slideDownAndFade {
+    0% {
+      opacity: 0;
+      transform: translateY(-0.2604vh); /* -2px */
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  @keyframes slideLeftAndFade {
+    0% {
+      opacity: 0;
+      transform: translateX(0.2604vh); /* 2px */
+    }
+    100% {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+
+/*End of Hover Card CSS*/

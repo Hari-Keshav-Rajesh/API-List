@@ -63,6 +63,9 @@ const Login = (props) => {
       if(response.data['Message']==='Account Created'){
         alert('Account Created')
       }
+      else{
+        alert(response.data['Message'])
+      }
     } catch (error) {
       console.error('Error fetching data:', error);
       throw error;
@@ -100,7 +103,7 @@ const Login = (props) => {
         <div className="form-buttons">
         <Dialog.Root>
             <Dialog.Trigger asChild>
-              <button className="Button violet">Create Account</button>
+              <button className="dialog violet">Create Account</button>
             </Dialog.Trigger>
             <Dialog.Portal>
               <Dialog.Overlay className="DialogOverlay" />
@@ -123,11 +126,11 @@ const Login = (props) => {
                 </fieldset>
                 <div style={{ display: 'flex', marginTop: 25, justifyContent: 'flex-end' }}>
                   <Dialog.Close asChild>
-                    <button className="Button green" onClick={handleCreateAccount}>Save changes</button>
+                    <button className="dialog green" onClick={handleCreateAccount}>Save changes</button>
                   </Dialog.Close>
                 </div>
                 <Dialog.Close asChild>
-                  <button className="IconButton" aria-label="Close">
+                  <button className="IconDialog" aria-label="Close">
                     <Cross2Icon />
                   </button>
                 </Dialog.Close>
