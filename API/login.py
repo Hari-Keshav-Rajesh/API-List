@@ -11,7 +11,7 @@ app.login = {'status':False,'user':""}
 def log_in(login_request: Login_Request):
 
     if(app.login['status']==True):
-        return {'Message':'Already Logged In','User':app.login['user']}
+        return {'Message':'Already Logged In','User':app.login['user'],'login':app.login['status']}
 
     username = login_request.username
     password = login_request.password
@@ -22,12 +22,12 @@ def log_in(login_request: Login_Request):
             cursor.execute(query1, (username,))
             count = cursor.fetchone()[0]
     except mysql.connector.Error as e:
-        return {'error': 'Database error', 'details': str(e)}
+        return {'Message': 'Database error', 'details': str(e)}
     finally:
         cursor.close() 
     
     if count == 0:
-        return{'Username':'Does not exist'}
+        return{'Message':'Username Does not exist','User':app.login['user'],'login':app.login['status']}
     else:
         query2 = "SELECT Password FROM accounts WHERE Username = %s"
         try:
@@ -44,7 +44,7 @@ def log_in(login_request: Login_Request):
             app.login['user'] = f"{username}"
             return {'Message': 'Logged In Successfully','User':app.login['user'],'login':app.login['status']}
         else:
-            return {'Message':'Password Incorrect'}
+            return {'Message':'Password Incorrect','User':app.login['user'],'login':app.login['status']}
         
 @app.post("/logout")
 def logout():
@@ -71,7 +71,7 @@ def register(login_register: Login_Request):
             cursor.execute(query1, (username,))
             count = cursor.fetchone()[0]
     except mysql.connector.Error as e:
-        return {'error': 'Database error', 'details': str(e)}
+        return {'Message': 'Database error', 'details': str(e)}
     finally:
         cursor.close() 
     
@@ -87,7 +87,7 @@ def register(login_register: Login_Request):
                 connection.commit()
                 return {'Message':'Account Created'}
         except mysql.connector.Error as e:
-            return {'error': 'Database error', 'details': str(e)}
+            return {'Message': 'Database error', 'details': str(e)}
         finally:
             cursor.close()
 
@@ -113,6 +113,9 @@ def del_acc():
         return{"Message":"Account has been deleted"};
     return{"Message":"Nobody logged in"}
 
+@app.get("/status")
+def status_login():
+    return {'User': app.login['user'], 'login': app.login['status']}
     
     
     

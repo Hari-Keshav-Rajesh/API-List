@@ -1,0 +1,230 @@
+.loginPage{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap:1vh;
+  color: aqua;
+  font-weight: bold;
+  height: 100vh;
+  background-image: url('https://media.istockphoto.com/id/958693744/vector/abstract-red-light-trail-on-blue-background.jpg?s=612x612&w=0&k=20&c=zaklCkqKZFiZFGcOjasGZLopy_cgp7fyA1yXltxQGDc=');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+
+.login-form{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: purple;
+  color: white;
+  padding: 2vh;
+}
+
+.loginForm{
+  display: flex;
+  flex-direction: column;
+  gap: 2vh;
+}
+.form-group{
+  display: flex;
+  gap: 1vh;
+  padding: 1vh;
+}
+
+.form-buttons{
+  display: flex;
+  justify-content: space-between;
+  gap: 1vh;
+  padding: 2vh;
+}
+
+.loginButton{
+  color: white;
+  background-color: #24a0ED;
+  font-weight: bold;
+  padding: 1vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1vh;
+}
+
+.loginButton:hover{
+  border-color: black;
+  border-style: solid;
+  border-width: .2vh;
+}
+
+.form-group input{
+  border-style: solid;
+  border-width: 0.1%;
+  border-color: white;
+  margin-left: 1vh;
+}
+
+
+
+
+
+/*Dialog Box */
+
+@import '@radix-ui/colors/black-alpha.css';
+@import '@radix-ui/colors/green.css';
+@import '@radix-ui/colors/mauve.css';
+@import '@radix-ui/colors/violet.css';
+
+/* reset */
+button,
+fieldset,
+input {
+  all: unset;
+}
+
+.DialogOverlay {
+  background-color: var(--black-a9);
+  position: fixed;
+  inset: 0;
+  animation: overlayShow 150ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.DialogContent {
+  background-color: white;
+  border-radius: 0.6vh;
+  box-shadow: hsl(206 22% 7% / 35%) 0vh 0.1vh 3.8vh -1vh, hsl(206 22% 7% / 20%) 0vh 1vh 2vh -1.5vh;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 90vw;
+  max-width: 45vh;
+  max-height: 85vh;
+  padding: 3.5vh;
+  animation: contentShow 150ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+.DialogContent:focus {
+  outline: none;
+}
+
+.DialogTitle {
+  margin: 0;
+  font-weight: 500;
+  color: var(--mauve-12);
+  font-size: 3vh;
+}
+
+.DialogDescription {
+  margin: 1vh 0 2vh;
+  color: var(--mauve-11);
+  font-size: 2vh;
+  line-height: 1.5;
+}
+
+.Button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 0.4vh;
+  padding: 0 2.5vh;
+  font-size: 2vh;
+  line-height: 1;
+  font-weight: 500;
+  height: 3.5vh;
+}
+.Button.violet {
+  background-color: white;
+  color: var(--violet-11);
+  box-shadow: 0 0.2vh 1vh var(--black-a7);
+}
+.Button.violet:hover {
+  background-color: var(--mauve-3);
+}
+.Button.violet:focus {
+  box-shadow: 0 0 0 0.2vh black;
+}
+.Button.green {
+  background-color: var(--green-10);
+  color: white;
+  font-weight: bold;
+}
+.Button.green:hover {
+  background-color: var(--green-8);
+}
+.Button.green:focus {
+  box-shadow: 0 0 0 0.2vh var(--green-7);
+}
+
+.IconButton {
+  font-family: inherit;
+  border-radius: 100%;
+  height: 2.5vh;
+  width: 2.5vh;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--violet-11);
+  position: absolute;
+  top: 1vh;
+  right: 1vh;
+}
+.IconButton:hover {
+  background-color: var(--violet-4);
+}
+.IconButton:focus {
+  box-shadow: 0 0 0 .2vh var(--violet-7);
+}
+
+.Fieldset {
+  display: flex;
+  gap: 2vh;
+  align-items: center;
+  margin-bottom: 1.5vh;
+}
+
+.Label {
+  font-size: 2vh;
+  color: var(--violet-11);
+  text-align: right;
+}
+
+.Input {
+  width: 100%;
+  flex: 1;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: .4vh;
+  padding: 0 1vh;
+  font-size: 2vh;
+  line-height: 1;
+  color: var(--violet-11);
+  box-shadow: 0 0 0 0.1vh var(--violet-7);
+  height: 5vh;
+}
+.Input:focus {
+  box-shadow: 0 0 0 0.2vh var(--violet-8);
+}
+
+@keyframes overlayShow {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes contentShow {
+  from {
+    opacity: 0;
+    transform: translate(-50%, -48%) scale(0.96);
+  }
+  to {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+  }
+}
+
+/* End of Dialog Box */
