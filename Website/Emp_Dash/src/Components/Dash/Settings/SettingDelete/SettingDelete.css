@@ -1,0 +1,160 @@
+@import '@radix-ui/colors/black-alpha.css';
+@import '@radix-ui/colors/mauve.css';
+@import '@radix-ui/colors/red.css';
+@import '@radix-ui/colors/violet.css';
+
+.settingDeleteTitle{
+    text-align: center;
+    color: red;
+    font-size: 5vh;
+    font-weight: bold;
+}
+
+.settingDeleteWarning{
+    padding: 6vh;
+    text-align: center;
+    font-size: 3vh;
+}
+
+.deleteAccountButton{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 4vh;
+}
+
+/*Delete Account button CSS*/
+
+.deleteAlert {
+    all: unset;
+  }
+  
+  .deleteAlertDialogOverlay {
+    background-color: var(--black-a9);
+    position: fixed;
+    inset: 0;
+    animation: overlayShow 150ms cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  
+  .deleteAlertDialogContent {
+    background-color: white;
+    border-radius: 0.6vh;
+    box-shadow: hsl(206 22% 7% / 35%) 0vh 1vh 3.8vh -1.0vh, hsl(206 22% 7% / 20%) 0vh 1.0vh 2.0vh -1.5vh;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 90vw;
+    max-width: 50vh;
+    max-height: 85vh;
+    padding: 2.5vh;
+    animation: contentShow 150ms cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  .deleteAlertDialogContent:focus {
+    outline: none;
+  }
+  
+  .deleteAlertDialogTitle {
+    margin: 0;
+    color: var(--mauve-12);
+    font-size: 3vh;
+    font-weight: 500;
+  }
+  
+  .deleteAlertDialogDescription {
+    margin-bottom: 3vh;
+    color: var(--mauve-11);
+    font-size: 2vh;
+    line-height: 1.5;
+  }
+  
+  .deleteAlert {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: .6vh;
+    padding: 0 2vh;
+    font-size: 2vh;
+    line-height: 1;
+    font-weight: 500;
+    height: 4vh;
+  }
+  .deleteAlert.violet {
+    background-color: red;
+    color: white;
+    font-weight: bold;
+    box-shadow: 0 .3vh 1.2vh var(--black-a7);
+  }
+  .deleteAlert.violet:hover {
+    background-color: var(--mauve-3);
+    color: red;
+  }
+  .deleteAlert.violet:focus {
+    box-shadow: 0 0 0 .4vh black;
+  }
+  .deleteAlert.red {
+    background-color: var(--red-4);
+    color: var(--red-11);
+  }
+  .deleteAlert.red:hover {
+    background-color: var(--red-5);
+    border-color: red;
+    border-width: 0.2vh;
+    border-style: solid;
+  }
+  .deleteAlert.red:focus {
+    box-shadow: 0 0 0 .4vh var(--red-7);
+  }
+  .deleteAlert.mauve {
+    background-color: var(--mauve-4);
+    color: var(--mauve-11);
+  }
+  .deleteAlert.mauve:hover {
+    background-color: var(--mauve-5);
+    border-color: green;
+    border-width: 0.2vh;
+    border-style: solid;
+  }
+  .deleteAlert.mauve:focus {
+    box-shadow: 0 0 0 .4vh var(--mauve-7);
+  }
+  
+  @keyframes overlayShow {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+  
+  @keyframes contentShow {
+    from {
+      opacity: 0;
+      transform: translate(-50%, -48%) scale(0.96);
+    }
+    to {
+      opacity: 1;
+      transform: translate(-50%, -50%) scale(1);
+    }
+  }
+
+/*End of Delete Account Button CSS*/
+
+.deletePasswordInput{
+    padding-top: 1vh;
+}
+
+.deletePasswordInput input{
+    border-color: black;
+    border-style: solid;
+    border-width: 0.3vh;
+    color: black;
+    font-weight: bold;
+    background-color: lightgray;
+}
+
+.deletePasswordInput input:hover{
+    border-color: red;
+    border-width: .5vh;
+}

@@ -13,6 +13,7 @@ function App() {
 
   const [loggedIn, setLoggedIn] = useState(false)
   const [user,setUser] = useState('')
+  const [pass,setPass] = useState('')
 
   const [home,setHome] = useState(true)
   const [task,setTask] = useState(false)
@@ -20,25 +21,24 @@ function App() {
   const [dark,setDark] = useState(false)
 
 
-  const [homeClass,setHomeClass] = useState('home')
-  const [taskClass,setTaskClass] = useState('task')
-  const [settingsClass,setSettingsClass] = useState('settings')
+  const [themeClass,setThemeClass] = useState('home')
 
-  const loginProps = {user,setUser,loggedIn,setLoggedIn}
-  const homeProps = {user,homeClass}
-  const taskProps = {user,taskClass}
-  const settingsProps = {user,settingsClass}
+  const loginProps = {user,setUser,setPass,loggedIn,setLoggedIn}
+  const homeProps = {user,themeClass}
+  const taskProps = {user,themeClass}
+  const settingsProps = {user,themeClass,pass,setLoggedIn}
   const headerProps = {home,setHome,task,setTask,settings,setSettings,dark,setDark,
-    homeClass,setHomeClass,taskClass,setTaskClass,settingsClass,setSettingsClass}
+    themeClass,setThemeClass}
 
 
 
   useEffect(() => {
-    async function fetchData() {
+    async function fetchData() { 
       try {
         const response = await axios.get('http://localhost:8000/status');
         setLoggedIn(response.data.login);
         setUser(response.data['User'])
+        setPass(response.data['password'])
       } catch (error) {
         console.error('Error fetching data:', error);
         throw error;

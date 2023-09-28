@@ -3,7 +3,7 @@ from login import *
 from fastapi.middleware.cors import CORSMiddleware
 
 
-origins = ["http://localhost:5173"]  
+origins = ["http://localhost:5173"]   
 
 app.add_middleware(
     CORSMiddleware,

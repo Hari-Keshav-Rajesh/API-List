@@ -5,7 +5,7 @@ class Login_Request(BaseModel):
     username: str
     password: str
 
-app.login = {'status':False,'user':""}
+app.login = {'status':False,'user':"",'password':""}
 
 @app.post("/login")
 def log_in(login_request: Login_Request):
@@ -42,7 +42,8 @@ def log_in(login_request: Login_Request):
         if(password == pass_word):
             app.login['status'] = True
             app.login['user'] = f"{username}"
-            return {'Message': 'Logged In Successfully','User':app.login['user'],'login':app.login['status']}
+            app.login['password'] = f"{password}"
+            return {'Message': 'Logged In Successfully','User':app.login['user'],'login':app.login['status'],'password':app.login['password']}
         else:
             return {'Message':'Password Incorrect','User':app.login['user'],'login':app.login['status']}
         
@@ -110,12 +111,13 @@ def del_acc():
             cursor.close() 
         app.login['status'] = False
         app.login['user']=""
+        app.login['password']=""
         return{"Message":"Account has been deleted"};
     return{"Message":"Nobody logged in"}
 
 @app.get("/status")
 def status_login():
-    return {'User': app.login['user'], 'login': app.login['status']}
+    return {'User': app.login['user'], 'login': app.login['status'],'password': app.login['password']}
     
     
     

@@ -1,0 +1,80 @@
+:root {
+    --foreground-hue: 0;
+    --foreground-saturation: 0%;
+    --foreground-lightness: 98%;
+
+    --card-hue: 240;
+    --card-saturation: 10%;
+    --card-lightness: 3.9%;
+
+    --card-foreground-hue: 0;
+    --card-foreground-saturation: 0%;
+    --card-foreground-lightness: 98%;
+
+    --popover-hue: 240;
+    --popover-saturation: 10%;
+    --popover-lightness: 3.9%;
+
+    --popover-foreground-hue: 0;
+    --popover-foreground-saturation: 0%;
+    --popover-foreground-lightness: 98%;
+
+    --primary-hue: 0;
+    --primary-saturation: 0%;
+    --primary-lightness: 98%;
+
+    --primary-foreground-hue: 240;
+    --primary-foreground-saturation: 5.9%;
+    --primary-foreground-lightness: 10%;
+
+    --secondary-hue: 240;
+    --secondary-saturation: 3.7%;
+    --secondary-lightness: 15.9%;
+
+    --secondary-foreground-hue: 0;
+    --secondary-foreground-saturation: 0%;
+    --secondary-foreground-lightness: 98%;
+
+    --muted-hue: 240;
+    --muted-saturation: 3.7%;
+    --muted-lightness: 15.9%;
+
+    --muted-foreground-hue: 240;
+    --muted-foreground-saturation: 5%;
+    --muted-foreground-lightness: 64.9%;
+
+    --accent-hue: 240;
+    --accent-saturation: 3.7%;
+    --accent-lightness: 15.9%;
+
+    --accent-foreground-hue: 0;
+    --accent-foreground-saturation: 0%;
+    --accent-foreground-lightness: 98%;
+
+    --destructive-hue: 0;
+    --destructive-saturation: 62.8%;
+    --destructive-lightness: 30.6%;
+
+    --destructive-foreground-hue: 0;
+    --destructive-foreground-saturation: 0%;
+    --destructive-foreground-lightness: 98%;
+
+    --border-hue: 240;
+    --border-saturation: 3.7%;
+    --border-lightness: 15.9%;
+
+    --input-hue: 240;
+    --input-saturation: 3.7%;
+    --input-lightness: 15.9%;
+
+    --ring-hue: 240;
+    --ring-saturation: 4.9%;
+    --ring-lightness: 83.9%;
+}
+
+.dark {
+    background: hsl(240,10%,3.9%);
+    color: white;
+    min-width: 90vw;
+    min-height: 91.6vh;
+}

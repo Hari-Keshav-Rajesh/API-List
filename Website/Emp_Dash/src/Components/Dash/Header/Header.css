@@ -4,7 +4,7 @@
     justify-content: space-between;
     padding: 2vh;
     background-color: gray;
-    color: white;
+    color: black;
 }
 
 .header-dark{
@@ -12,7 +12,8 @@
     display: flex;
     justify-content: space-between;
     padding: 2vh; 
-    background-color: #FFFFFF;
+    background: hsl(240,10%,10%);
+    color: white;
 }
 
 .headerButtons{
@@ -29,7 +30,7 @@
 }
 
 .sunIcon:hover{
-    color: rgb(255, 255, 0);
+    color: orange;
 }
 
 .moonIcon:hover{

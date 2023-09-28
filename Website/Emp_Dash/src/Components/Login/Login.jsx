@@ -37,6 +37,7 @@ const Login = (props) => {
       if(response.data['login']===true){
         props.setLoggedIn(true)
         props.setUser(response.data['User'])
+        props.setPass(response.data['password'])
       }
       else{
         alert(response.data['Message'])
@@ -62,6 +63,7 @@ const Login = (props) => {
       setNewPassword('')
       if(response.data['Message']==='Account Created'){
         alert('Account Created')
+        location.reload()
       }
       else{
         alert(response.data['Message'])
