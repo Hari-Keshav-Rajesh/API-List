@@ -1,0 +1,13 @@
+.TaskList{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.TaskListTitle{
+    font-size: 5vh;
+    font-style:italic;
+    border-bottom: #24A0ED solid 0.7vh;
+    padding-top: 3vh;
+    padding-bottom: 1vh;
+}

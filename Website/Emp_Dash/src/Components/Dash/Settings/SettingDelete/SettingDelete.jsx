@@ -10,7 +10,7 @@ const SettingDelete = (props) =>{
     const deletePasswordChange = (e) => {
         setDeletePassword(e.target.value)
     }
-
+ 
     const handleDeleteAccount = async(event) => {
         event.preventDefault()
         if(deletePassword===props.pass){

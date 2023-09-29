@@ -26,10 +26,10 @@ function App() {
   const loginProps = {user,setUser,setPass,loggedIn,setLoggedIn}
   const homeProps = {user,themeClass}
   const taskProps = {user,themeClass}
-  const settingsProps = {user,themeClass,pass,setLoggedIn}
+  const settingsProps = {setUser,setPass,themeClass,pass,setLoggedIn,user}
   const headerProps = {home,setHome,task,setTask,settings,setSettings,dark,setDark,
     themeClass,setThemeClass}
-
+ 
 
 
   useEffect(() => {

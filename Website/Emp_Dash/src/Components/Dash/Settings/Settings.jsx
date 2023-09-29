@@ -6,7 +6,7 @@ import SettingProfile from "./SettingProfile/SettingProfile"
 import SettingDelete from "./SettingDelete/SettingDelete"
 import SettingLog from "./SettingLog/SettingLog"
 
-const Settings = (props) => {
+const Settings = (props) => { 
 
     const[settingPage,setSettingPage] = useState('Profile')
 
@@ -19,14 +19,14 @@ const Settings = (props) => {
             <div className="settingSide">
                 <SettingSidebar {...settingSidebarProps} />
             </div>
-            <div className="settingContent">
+            <div className="settingContent"> 
                 {settingPage==='Profile'?(
                    <SettingProfile />
                 ):
                 settingPage==='Delete'?(
                     <SettingDelete pass={props.pass} setLoggedIn={props.setLoggedIn}/>
                 ):
-                    <SettingLog />
+                    <SettingLog user={props.user} setLoggedIn={props.setLoggedIn} setPass={props.setPass} setUser={props.setUser}/>
                 }
             </div>
        </div>

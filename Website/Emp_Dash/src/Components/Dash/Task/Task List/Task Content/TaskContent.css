@@ -1,0 +1,61 @@
+.TaskList {
+    display: flex;
+    flex-direction: column;
+    gap: 2vh;
+  }
+  
+  .TaskelementList {
+    display: flex;
+    gap:2vh;
+    align-items: center;
+  }
+  
+  .Taskinside {
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+    gap: 10vh;
+    min-width: 60vh;
+    padding: 2vh;
+    border-color: #4299e1;
+    border-style: solid;
+    border-width: 1vh;
+  }
+  
+  .TasktitleList {
+    font-style: italic;
+    font-size: 3vh;
+    color: black
+  }
+  
+  .Taskdelete {
+    background-color: #c70000;
+    color: wheat;
+    font-size: 2vh;
+    font-weight: bold;
+    border-radius: .5vh;
+    padding: 1vh;
+    border-color: white;
+    border-width: .3vh;
+    border-style: solid;
+  }
+  
+  .Taskfinish {
+    background-color: #4299e1;
+    color: wheat;
+    font-size: 2vh;
+    font-weight: bold;
+    border-radius: .5vh;
+    padding: 1vh;
+    border-color: white;
+    border-width: .3vh;
+    border-style: solid;
+  }
+
+  .Taskfinish:hover{
+    transform: scale(1.1);
+  }
+
+  .Taskdelete:hover{
+    transform: scale(1.1);
+  }

@@ -1,0 +1,59 @@
+.TaskFormWrapper{
+    padding: 5vh;
+}
+
+.TaskFormArea {
+    display: flex;
+    gap: 2vh;
+  }
+  
+  .TaskFormInput {
+    width: fit-content;
+    height: fit-content;
+    background-color: lightgrey;
+    font-size: 3vh;
+    margin-bottom: 3vh;
+    padding: 1vh;
+    color: black;
+  }
+
+  .TaskFormInput:hover{
+    border: #24AE0D solid 0.7vh;
+  }
+  
+  .addButton {
+    height: fit-content;
+    width: fit-content;
+    background-color: #24A0ED;
+    color: wheat;
+    font-size: 2vh;
+    font-weight: bold;
+    border-radius: .5vh;
+    padding: 1vh;
+    border-color: white;
+    border-width: .3vh;
+    border-style: solid;
+  }
+
+  .addButton:hover{
+    transform: scale(1.1);
+  }
+  
+  .deleteAll {
+    background-color: #c70000;
+    height: fit-content;
+    width: fit-content;
+    color: wheat;
+    font-size: 2vh;
+    font-weight: bold;
+    border-radius: .5vh;
+    padding: 1vh;
+    border-color: white;
+    border-width: .3vh;
+    border-style: solid;
+  }
+
+  .deleteAll:hover{
+    transform: scale(1.1);
+  }
+  
