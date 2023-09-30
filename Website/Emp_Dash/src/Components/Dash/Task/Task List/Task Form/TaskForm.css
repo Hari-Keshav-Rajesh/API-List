@@ -4,7 +4,7 @@
 
 .TaskFormArea {
     display: flex;
-    gap: 2vh;
+    gap: 4vh;
   }
   
   .TaskFormInput {

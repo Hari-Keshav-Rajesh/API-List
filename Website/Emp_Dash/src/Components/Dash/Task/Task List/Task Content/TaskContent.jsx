@@ -1,7 +1,14 @@
 import "./TaskContent.css";
+import axios from "axios";
 
 const TaskContent = (props) => {
-  const updateFinish = (id) => {
+  const updateFinish = async(id) => {
+    try {
+      const response = await axios.post(`http://localhost:8000/updateListStatus/${id}`)
+    } catch (error) {
+      console.error('Error fetching data:', error);
+      throw error;
+    }
     props.setList(
       props.list.map((list) => {
         if (list.id === id) {
@@ -17,13 +24,19 @@ const TaskContent = (props) => {
     );
   };
 
-  const removeKey = (id) => {
+  const removeKey = async(id) => {
+    try {
+      const response = await axios.delete(`http://localhost:8000/deleteList/${id}`)
+    } catch (error) {
+      console.error('Error fetching data:', error);
+      throw error;
+    }
     const updatedList = props.list.filter((list) => list.id !== id);
     props.setList(updatedList);
   };
 
   return (
-    <div className="TaskList">
+    <div className="TaskList"> 
       {props.list.map((list, index) => {
         return (
           <li className="TaskelementList" key={list.id}>

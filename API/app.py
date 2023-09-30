@@ -1,6 +1,4 @@
-from fastapi import FastAPI,UploadFile,Depends,Request
-import logging
-
+from fastapi import FastAPI
 
 app = FastAPI()
 

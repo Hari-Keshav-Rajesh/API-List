@@ -1,6 +1,6 @@
 import { useState } from "react"
-import TaskForm from "./Task Form/TaskForm";
-import TaskContent from "./Task Content/TaskContent";
+import TaskForm from "./Task List/Task Form/TaskForm";
+import TaskContent from "./Task List/Task Content/TaskContent";
 import "./TaskList.css"
 
 const TaskList = () => {

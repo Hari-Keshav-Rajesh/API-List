@@ -1,29 +1,49 @@
 import { v4 } from "uuid";
 import "./TaskForm.css";
+import axios from "axios";
+
 
 const TaskForm = (props) => {
+
   const onInput = (event) => {
     props.setValue(event.target.value);
   };
-
-  const onSubmit = (event) => {
+ 
+  const onSubmit = async(event) => {
     event.preventDefault();
-    if (props.value.trim() !== "") {
+    const newid = v4()
+    if (props.value) {
       props.setList([
         ...props.list,
         {
           title: props.value,
-          id: v4(),
+          id: newid,
           finish: false,
           buttonText: "Task Finished",
         },
       ]);
+      try {
+        const response = await axios.post('http://localhost:8000/addList',{
+          title:props.value,
+          id:newid,
+          finish:false,
+        });
+      } catch (error) {
+        console.error('Error fetching data:', error);
+        throw error;
+      }
       props.setValue("");
     }
   };
 
-  const onDeleteAll = () => {
+  const onDeleteAll = async() => {
     props.setList([]);
+    try {
+      const response = await axios.delete('http://localhost:8000/deleteAllList')
+    } catch (error) {
+      console.error('Error fetching data:', error);
+      throw error;
+    }
   };
 
   return (

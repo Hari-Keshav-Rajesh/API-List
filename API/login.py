@@ -72,7 +72,7 @@ def register(login_register: Login_Request):
             cursor.execute(query1, (username,))
             count = cursor.fetchone()[0]
     except mysql.connector.Error as e:
-        return {'Message': 'Database error', 'details': str(e)}
+        return {'Message': 'Database error', 'details': str(e)} 
     finally:
         cursor.close() 
     
@@ -80,7 +80,8 @@ def register(login_register: Login_Request):
         return{"Message":"Username already exists"}
     else:
         query2 = "INSERT INTO accounts (Username,Password) VALUES (%s,%s)"
-        query3 = f"CREATE TABLE {username} (Task VARCHAR(50),Type VARCHAR(10))"
+        query3 = f"CREATE TABLE {username} (title VARCHAR(255), id CHAR(36) PRIMARY KEY, finish BOOLEAN)"
+
         try:
             with connection.cursor() as cursor:
                 cursor.execute(query2,(username,password))
@@ -111,7 +112,7 @@ def del_acc():
             cursor.close() 
         app.login['status'] = False
         app.login['user']=""
-        app.login['password']=""
+        app.login['password']="" 
         return{"Message":"Account has been deleted"};
     return{"Message":"Nobody logged in"}
 
@@ -119,8 +120,7 @@ def del_acc():
 def status_login():
     return {'User': app.login['user'], 'login': app.login['status'],'password': app.login['password']}
     
-    
-    
+
     
     
     

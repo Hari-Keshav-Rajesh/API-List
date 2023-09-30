@@ -1,5 +1,6 @@
 from app import *
 from login import *
+from list import *
 from fastapi.middleware.cors import CORSMiddleware
 
 
