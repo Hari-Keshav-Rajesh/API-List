@@ -1,28 +1,70 @@
 import "./TaskContent.css";
 import axios from "axios";
+import { useEffect } from "react"
 
 const TaskContent = (props) => {
-  const updateFinish = async(id) => {
-    try {
-      const response = await axios.post(`http://localhost:8000/updateListStatus/${id}`)
-    } catch (error) {
-      console.error('Error fetching data:', error);
-      throw error;
-    }
-    props.setList(
-      props.list.map((list) => {
-        if (list.id === id) {
-          if (list.finish === true) {
-            return { ...list, finish: false, buttonText: "Task Finished" };
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await axios.get('http://localhost:8000/getList');
+  
+        if (response.status === 200) {
+          if (response.data && response.data.Array) {
+            props.setList(
+              response.data.Array.map((list) => {
+                return {
+                  id: list[1],
+                  title: list[0],
+                  finish: list[2],
+                  buttonText: list[2] ? "Relist Task" : "Task Finished",
+                };
+              })
+            );
           } else {
-            return { ...list, finish: true, buttonText: "Relist Task" };
+            console.error("No data received from the API.");
           }
         } else {
-          return list;
+          console.error("Received a non-200 status:", response.status);
         }
-      }),
-    );
+      } catch (error) {
+        console.error("Error fetching data:", error);
+        throw error;
+      }
+    };
+  
+    fetchData();
+  }, []);
+  
+
+
+  const updateFinish = async (id) => {
+    try {
+      const response = await axios.post(`http://localhost:8000/updateListStatus/${id}`);
+      if (response.status === 200) {
+        props.setList((prevList) =>
+          prevList.map((list) => {
+            if (list.id === id) {
+              // Toggle finish value
+              const newFinish = !list.finish;
+              return {
+                ...list,
+                finish: newFinish,
+                buttonText: newFinish ? "Relist Task" : "Task Finished",
+              };
+            }
+            return list;
+          })
+        );
+      } else {
+        console.error("Received a non-200 status:", response.status);
+      }
+    } catch (error) {
+      console.error("Error fetching data:", error);
+      throw error;
+    }
   };
+  
 
   const removeKey = async(id) => {
     try {

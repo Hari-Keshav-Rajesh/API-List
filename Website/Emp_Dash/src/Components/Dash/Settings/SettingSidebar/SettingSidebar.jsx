@@ -4,6 +4,7 @@ import Box from "@mui/joy/Box";
 import Button from "@mui/joy/Button";
 import { useState } from "react";
 
+
 const SettingSidebar = (props) => {
   const [open, setOpen] = useState(false);
 
@@ -13,7 +14,7 @@ const SettingSidebar = (props) => {
   }
 
   const onSettingDelete = () => {
-    props.setSettingPage('Delete')
+    props.setSettingPage('Delete') 
   }
 
   const onSettingLog = () => {
