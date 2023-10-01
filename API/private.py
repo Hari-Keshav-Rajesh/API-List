@@ -1,1 +1,0 @@
-password_my_sql = "sqlpass"
