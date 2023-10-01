@@ -6,7 +6,7 @@ const Task = (props) => {
     return(
         <div className={[props.themeClass]}>
             <div>
-                <TaskList />
+                <TaskList user={props.user}/>
             </div>
         </div>
     )

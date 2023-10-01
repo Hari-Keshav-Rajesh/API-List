@@ -3,7 +3,7 @@ import TaskForm from "./Task List/Task Form/TaskForm";
 import TaskContent from "./Task List/Task Content/TaskContent";
 import "./TaskList.css"
 
-const TaskList = () => {
+const TaskList = (props) => {
     const [value, setValue] = useState("");
     const [list, setList] = useState([]);
 
@@ -12,7 +12,7 @@ const TaskList = () => {
 
     return (
         <div className="TaskList">
-        <div className="TaskListTitle">Employee To-Do List</div>
+        <div className="TaskListTitle">{props.user}'s To-Do List</div>
         <TaskForm {...TaskFormProps} />
         <TaskContent {...TaskContentProps} />
         </div>

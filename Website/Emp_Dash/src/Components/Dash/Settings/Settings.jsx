@@ -17,7 +17,7 @@ const Settings = (props) => {
     return(
        <div className={[props.themeClass]}>
             <div className="settingSide">
-                <SettingSidebar {...settingSidebarProps} />
+                <SettingSidebar {...settingSidebarProps} user={props.user} />
             </div>
             <div className="settingContent"> 
                 {settingPage==='Profile'?(

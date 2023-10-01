@@ -1,3 +1,29 @@
+.settingSidebarTitle{
+    display: flex;
+    gap: 1vh;
+    justify-content: center;
+    padding-top: 10vh;
+    align-items: center;
+}
+
+.settingSidebarAvatar{
+    background-color: #24A0ED;
+    padding: 1vh;
+}
+
+.settingSidebarAvatar span{
+    font-size: 2vh;
+    font-weight: bold;
+    color: wheat;
+}
+
+.settingSidebarUsername{
+    font-size: 4vh;
+    font-weight: bold;
+}
+
+
+
 .settingSidebarbuttons{
     display: flex;
     flex-direction: column;
@@ -11,7 +37,7 @@
 .settingSidebarbuttons button{
     font-size: 5vh;
     font-weight: bold;
-}
+} 
 
 .settingSidebarbuttons button:hover{
     transform: scale(1.1);
