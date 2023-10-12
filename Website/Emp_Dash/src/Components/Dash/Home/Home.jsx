@@ -4,8 +4,9 @@ import "../dark.css"
 const Home = (props) =>{
     return(
         <div className={[props.themeClass]}>
-            Home
+            <div className="homeTitle">Welcome @<span className="homeTitleUser">{props.user}</span></div>
         </div>
+        
     )
 }
 

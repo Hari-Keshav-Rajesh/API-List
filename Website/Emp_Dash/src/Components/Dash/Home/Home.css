@@ -1,0 +1,10 @@
+.homeTitle{
+    text-align: center;
+    padding-top: 15vh;
+    font-size: 10vh;
+    font-style: italic;
+}
+
+.homeTitleUser{
+    color: #24a0ED;
+}
