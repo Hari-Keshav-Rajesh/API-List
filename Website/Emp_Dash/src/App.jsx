@@ -9,7 +9,10 @@ import axios  from "axios";
 
 
 
+
 function App() {
+
+  const [tokenState,setTokenState] = useState()
 
   const [loggedIn, setLoggedIn] = useState(false)
   const [user,setUser] = useState('')
@@ -23,10 +26,10 @@ function App() {
 
   const [themeClass,setThemeClass] = useState('home')
 
-  const loginProps = {user,setUser,setPass,loggedIn,setLoggedIn}
+  const loginProps = {user,setUser,setPass,loggedIn,setLoggedIn,tokenState,setTokenState}
   const homeProps = {user,themeClass}
   const taskProps = {user,themeClass}
-  const settingsProps = {setUser,setPass,themeClass,pass,setLoggedIn,user}
+  const settingsProps = {setUser,setPass,themeClass,pass,setLoggedIn,user,setTokenState}
   const headerProps = {home,setHome,task,setTask,settings,setSettings,dark,setDark,
     themeClass,setThemeClass}
  
@@ -35,7 +38,12 @@ function App() {
   useEffect(() => {
     async function fetchData() { 
       try {
-        const response = await axios.get('http://localhost:8000/status');
+        const config = {
+          headers: {
+              Authorization: tokenState
+          }
+        }
+        const response = await axios.get('http://localhost:8000/status',config);
         setLoggedIn(response.data.login);
         setUser(response.data['User'])
         setPass(response.data['password'])

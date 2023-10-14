@@ -1,4 +1,4 @@
-from fastapi import FastAPI
+from fastapi import FastAPI,Header,HTTPException,Depends
 
 app = FastAPI()
 
@@ -19,3 +19,16 @@ try:
         print("Connected to MySQL database")
 except Error as e:
     print(f"Error: {e}")
+
+def extract_token(authorization: str = Header(None)):
+    if authorization and authorization.startswith('Bearer '):
+        token = authorization[len('Bearer '):]
+        return token
+    return None
+
+@app.get("/protected")
+async def protected_route(token: str = Depends(extract_token)):
+    if token is None:
+        raise HTTPException(status_code=401, detail="Unauthorized")
+    # Your code to validate the token and process the request
+    return {"message": "Authorized"}

@@ -2,6 +2,8 @@ import "./SettingDelete.css"
 import * as AlertDialog from '@radix-ui/react-alert-dialog';
 import { useState } from "react";
 import axios from "axios";
+import Cookies from "js-cookie";
+
 
 const SettingDelete = (props) =>{
 
@@ -15,9 +17,14 @@ const SettingDelete = (props) =>{
         event.preventDefault()
         if(deletePassword===props.pass){
             try {
+                const config = {
+                    headers: {
+                        Authorization: `Bearer ${Cookies.get('token')}`
+                    }
+                  }
                 const response = await axios.post('http://localhost:8000/delete',{
                   password:deletePassword
-                })
+                },config)
                 alert("Account Deleted")
                 props.setLoggedIn(false);
               } catch (error) {

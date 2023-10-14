@@ -1,0 +1,51 @@
+.userChange{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap:2vh;
+}
+
+.changeUserForm{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap:4vh;
+}
+
+.changeUserForm div{
+    display: flex;
+    flex-direction: column;
+}
+
+.changeUserForm input{
+    width: fit-content;
+    height: fit-content;
+    min-width: 4vh;
+    min-height: 3vh;
+    border: 0.1vh solid red;
+    border-radius: 0.5vh;
+}
+
+.changeUserForm input:hover{
+    background-color: lightgrey;
+}
+
+.changeUserForm button{
+    color: white;
+    background-color: #1d5910;
+    height: fit-content;
+    width: fit-content;
+    font-weight: bold;
+    padding: 1vh;
+    font-size: 2vh;
+    margin-top: 2vh;
+    border-radius: 0.5vh;
+}
+
+.changeUserForm button:hover{
+    color: lightgray;
+    transform: scale(1.1);
+    cursor: pointer;
+}

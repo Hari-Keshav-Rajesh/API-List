@@ -1,13 +1,22 @@
 import "./TaskContent.css";
 import axios from "axios";
 import { useEffect } from "react"
+import { useContext } from "react";
+import Cookies from "js-cookie";
+
 
 const TaskContent = (props) => {
+
 
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get('http://localhost:8000/getList');
+        const config = {
+          headers: {
+              Authorization: `Bearer ${Cookies.get('token')}`
+          }
+        }
+        const response = await axios.get('http://localhost:8000/getList',config);
   
         if (response.status === 200) {
           if (response.data && response.data.Array) {
@@ -17,9 +26,9 @@ const TaskContent = (props) => {
                   id: list[1],
                   title: list[0],
                   finish: list[2],
-                  buttonText: list[2] ? "Relist Task" : "Task Finished",
+                  buttonText: list[2] ? "Relist Task" : "Task Finished", 
                 };
-              })
+              }) 
             );
           } else {
             console.error("No data received from the API.");
@@ -40,7 +49,12 @@ const TaskContent = (props) => {
 
   const updateFinish = async (id) => {
     try {
-      const response = await axios.post(`http://localhost:8000/updateListStatus/${id}`);
+      const config = {
+        headers: {
+            Authorization: `Bearer ${Cookies.get('token')}`
+        }
+      }
+      const response = await axios.post(`http://localhost:8000/updateListStatus/${id}`,{},config);
       if (response.status === 200) {
         props.setList((prevList) =>
           prevList.map((list) => {
@@ -68,7 +82,12 @@ const TaskContent = (props) => {
 
   const removeKey = async(id) => {
     try {
-      const response = await axios.delete(`http://localhost:8000/deleteList/${id}`)
+      const config = {
+        headers: {
+            Authorization: `Bearer ${Cookies.get('token')}`
+        }
+      }
+      const response = await axios.delete(`http://localhost:8000/deleteList/${id}`,config)
     } catch (error) {
       console.error('Error fetching data:', error);
       throw error;

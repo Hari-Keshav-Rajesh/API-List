@@ -3,7 +3,8 @@ import React, { useState } from 'react';
 import * as Dialog from '@radix-ui/react-dialog';
 import { Cross2Icon } from '@radix-ui/react-icons';
 import axios from 'axios';
-import { Navigate } from "react-router-dom";
+import Cookies from 'js-cookie';
+
 
 
 const Login = (props) => {
@@ -25,7 +26,7 @@ const Login = (props) => {
     event.preventDefault()
     if (username === '' || password === '') {
       alert('Fill all the details')
-      return
+      return 
     }
     try {
       const response = await axios.post('http://localhost:8000/login',{
@@ -38,6 +39,8 @@ const Login = (props) => {
         props.setLoggedIn(true)
         props.setUser(response.data['User'])
         props.setPass(response.data['password'])
+        props.setTokenState(response.data['token'])
+        Cookies.set('token',response.data['token'],{path:'/'})
       }
       else{
         alert(response.data['Message'])

@@ -1,6 +1,10 @@
-const SettingProfile = () =>{
+import UserChangeForm from "./UserChangeForm/UserChangeForm"
+
+const SettingProfile = (props) =>{
     return(
-        <div className="settingProfile">Profile</div>
+        <div className="settingProfile">
+            <UserChangeForm setTokenState={props.setTokenState}/>
+        </div>
     )
 }
 

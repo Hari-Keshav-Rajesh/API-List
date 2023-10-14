@@ -1,6 +1,8 @@
 import { v4 } from "uuid";
 import "./TaskForm.css";
 import axios from "axios";
+import Cookies from "js-cookie";
+
 
 
 const TaskForm = (props) => {
@@ -23,11 +25,16 @@ const TaskForm = (props) => {
         },
       ]);
       try {
+        const config = {
+          headers: {
+              Authorization: `Bearer ${Cookies.get('token')}`
+          }
+        }
         const response = await axios.post('http://localhost:8000/addList',{
           title:props.value,
           id:newid,
           finish:false,
-        });
+        },config);
       } catch (error) {
         console.error('Error fetching data:', error);
         throw error;
@@ -39,7 +46,12 @@ const TaskForm = (props) => {
   const onDeleteAll = async() => {
     props.setList([]);
     try {
-      const response = await axios.delete('http://localhost:8000/deleteAllList')
+      const config = {
+        headers: {
+            Authorization: `Bearer ${Cookies.get('token')}`
+        }
+      }
+      const response = await axios.delete('http://localhost:8000/deleteAllList',config)
     } catch (error) {
       console.error('Error fetching data:', error);
       throw error;

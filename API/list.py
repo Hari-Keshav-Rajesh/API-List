@@ -10,9 +10,9 @@ class List_Elements(BaseModel):
 
 
 @app.post("/addList")
-def add_list(list_ele: List_Elements):
-    if app.login["status"] == True:
-        query = f"INSERT INTO {app.login['user']} (title,id,finish) VALUES (%s,%s,%s)"
+def add_list(list_ele: List_Elements,token: str = Depends(extract_token)):
+        payload = get_token_payload(token)
+        query = f"INSERT INTO {payload['username']} (title,id,finish) VALUES (%s,%s,%s)"
         try:
             with connection.cursor() as cursor:
                 cursor.execute(query, (list_ele.title, list_ele.id, list_ele.finish))
@@ -22,13 +22,12 @@ def add_list(list_ele: List_Elements):
             return {"Message": "Database error", "details": str(e)}
         finally:
             cursor.close()
-    return {"Message": "Nobody logged in"}
 
 
 @app.delete("/deleteList/{id}")
-def delete_list(id: str):
-    if app.login["status"] == True:
-        query = f"DELETE FROM {app.login['user']} WHERE id = %s"
+def delete_list(id: str,token: str = Depends(extract_token)):
+        payload = get_token_payload(token)
+        query = f"DELETE FROM {payload['username']} WHERE id = %s"
         try:
             with connection.cursor() as cursor:
                 cursor.execute(query, (id,))
@@ -38,13 +37,12 @@ def delete_list(id: str):
             return {"Message": "Database error", "details": str(e)}
         finally:
             cursor.close()
-    return {"Message": "Nobody logged in"}
-
+ 
 
 @app.delete("/deleteAllList")
-def delete_all_list():
-    if app.login["status"] == True:
-        query = f"DELETE FROM {app.login['user']}"
+def delete_all_list(token: str = Depends(extract_token)):
+        payload = get_token_payload(token)
+        query = f"DELETE FROM {payload['username']}"
         try:
             with connection.cursor() as cursor:
                 cursor.execute(query)
@@ -54,13 +52,13 @@ def delete_all_list():
             return {"Message": "Database error", "details": str(e)}
         finally:
             cursor.close()
-    return {"Message": "Nobody logged in"}
+
 
 
 @app.post("/updateListStatus/{id}")
-def update_list_status(id: str):
-    if app.login["status"] == True:
-        query = f"UPDATE {app.login['user']} SET finish = NOT finish WHERE id = %s"
+def update_list_status(id: str,token: str = Depends(extract_token)):
+        payload = get_token_payload(token)
+        query = f"UPDATE {payload['username']} SET finish = NOT finish WHERE id = %s"
         try:
             with connection.cursor() as cursor:
                 cursor.execute(query, (id,))
@@ -70,13 +68,13 @@ def update_list_status(id: str):
             return {"Message": "Database error", "details": str(e)}
         finally:
             cursor.close()
-    return {"Message": "Nobody logged in"}
+    
 
 
 @app.get("/getList")
-def get_list():
-    if app.login["status"] == True:
-        query = f"SELECT * FROM {app.login['user']}"
+def get_list(token: str = Depends(extract_token)):
+        payload = get_token_payload(token)
+        query = f"SELECT * FROM {payload['username']}"
         try:
             with connection.cursor() as cursor:
                 cursor.execute(query)
@@ -86,4 +84,4 @@ def get_list():
             return {"Message": "Database error", "details": str(e)}
         finally:
             cursor.close()
-    return {"Message": "Nobody logged in"}
+    

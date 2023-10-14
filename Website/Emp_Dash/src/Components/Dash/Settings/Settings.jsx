@@ -21,7 +21,7 @@ const Settings = (props) => {
             </div>
             <div className="settingContent"> 
                 {settingPage==='Profile'?(
-                   <SettingProfile />
+                   <SettingProfile setTokenState={props.setTokenState}/>
                 ):
                 settingPage==='Delete'?(
                     <SettingDelete pass={props.pass} setLoggedIn={props.setLoggedIn}/>
