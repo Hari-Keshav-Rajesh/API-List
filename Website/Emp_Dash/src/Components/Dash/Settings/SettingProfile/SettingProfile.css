@@ -1,0 +1,6 @@
+.settingProfile{
+    display: flex;
+    flex-direction: column;
+    gap: 8vh;
+    padding-bottom: 5vh;
+}

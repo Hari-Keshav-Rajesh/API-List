@@ -19,6 +19,8 @@ const UserChangeForm = (props) => {
 
     const submitUserChange = async(event) => {
         event.preventDefault();
+        setConfirmPassword("")
+        setNewUsername("")
         if (newUsername === '' || confirmPassword === '') {
             alert('Fill all the details')
             return
@@ -33,12 +35,10 @@ const UserChangeForm = (props) => {
                 username: newUsername,
                 password: confirmPassword
             },config)
-            if(response.data['Message']==="Username already exists"){
+            if((response.data['Message']==="Username already exists")||(response.data['Message']==="Password Incorrect")){
                 alert(response.data['Message'])
             }
             else{
-                setConfirmPassword("")
-                setNewUsername("")
                 props.setTokenState(response.data['identifier'])
                 Cookies.set('token',response.data['identifier'],{path:'/'})
                 alert(response.data['Message'])
